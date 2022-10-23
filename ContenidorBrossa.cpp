@@ -25,7 +25,7 @@ void ContenidorBrossa::setUbicacio(std::string ubicacio) {
 
 }
 
-int ContenidorBrossa::getCodi() {
+std::string ContenidorBrossa::getCodi() {
     return this->codi;
 }
 

@@ -28,7 +28,7 @@ public:
     void retirarViaPublica();
     std::string getUbicacio();
     void setUbicacio(std::string ubicacio);
-    int getCodi();
+    std::string getCodi();
     std::string getEstat();
     void toString();
     void buidat (float pes);
@@ -38,4 +38,4 @@ public:
 };
 
 
-#endif //PA_P2_CONTENIDORBROSSA_H
+#endif PA_P2_CONTENIDORBROSSA_H
