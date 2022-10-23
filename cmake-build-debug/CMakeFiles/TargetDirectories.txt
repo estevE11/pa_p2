@@ -1,3 +1,0 @@
-D:/dev/pa_p2/cmake-build-debug/CMakeFiles/pa_p2.dir
-D:/dev/pa_p2/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/dev/pa_p2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
