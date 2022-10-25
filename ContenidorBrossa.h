@@ -31,7 +31,7 @@ public:
     std::string getCodi();
     std::string getEstat();
     void toString();
-    void buidat (float pes); // Abstracte
+    virtual void buidat(float pes) = 0; // Abstracte
     std::string getType();
     std::string getReciclat();
     ~ContenidorBrossa();
