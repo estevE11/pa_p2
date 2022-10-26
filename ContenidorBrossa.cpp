@@ -39,7 +39,12 @@ std::string ContenidorBrossa::getUbicacio() {
 
 // Si el parametre es null vol dir q es retira el contenidor (cridar funcio "retirarViaPublica")
 void ContenidorBrossa::setUbicacio(std::string ubicacio) {
+    if(ubicacio == "") {
+        this->retirarViaPublica();
+        return;
+    }
 
+    this->ubicacio = ubicacio;
 }
 
 std::string ContenidorBrossa::getCodi() {
