@@ -4,7 +4,8 @@
 
 #include "ContenidorBrossa.h"
 
-#include <time.h>>
+#include <time.h>
+#include <iostream>
 
 ContenidorBrossa::ContenidorBrossa(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara) {
 
@@ -85,7 +86,14 @@ std::string ContenidorBrossa::getEstat() {
  *  Tara: valor real amb dos decimals
  * */
 void ContenidorBrossa::toString() {
-
+    std::cout << "Codi: " << this->codi << std::endl;
+    std::cout << "Color: " << this->getTipusBrossa() << std::endl;
+    std::cout << "Ubicació: ";
+    if(this->ubicacio != "")
+        std::cout << this->ubicacio;
+    else
+        std::cout << "Retirat";
+    std::cout << "Tara: " << this->tara << std::endl;
 }
 
 void ContenidorBrossa::buidat(float pes) {
