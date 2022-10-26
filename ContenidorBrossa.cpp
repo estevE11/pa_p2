@@ -4,6 +4,8 @@
 
 #include "ContenidorBrossa.h"
 
+#include <time.h>>
+
 ContenidorBrossa::ContenidorBrossa(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara) {
 
 }
@@ -17,7 +19,18 @@ std::string ContenidorBrossa::getTipusBrossa() {
 }
 
 void ContenidorBrossa::retirarViaPublica() {
+    if(this->anyRetirada == NULL || this->anyRetirada == 0 || this->ubicacio == "")
+        throw "ERROR: Intent de retirar un contenidor que no està en la via publica!";
 
+    time_t now;
+    struct tm *now_tm;
+    now = time(NULL);
+    now_tm = localtime(&now);
+    int year = now_tm->tm_year + 1900;
+
+    this->anyRetirada = year;
+    this->ubicacio = "";
+    this->anyColocacio = 0;
 }
 
 std::string ContenidorBrossa::getUbicacio() {
