@@ -61,7 +61,19 @@ std::string ContenidorBrossa::getCodi() {
     de retornar la cadena “retirat”.
  * */
 std::string ContenidorBrossa::getEstat() {
-    return std::string();
+    time_t now;
+    struct tm *now_tm;
+    now = time(NULL);
+    now_tm = localtime(&now);
+    int year = now_tm->tm_year + 1900;
+    int year_delta = year - this->anyColocacio;
+
+    if(year_delta > 5)
+        return "VELL";
+    if(year_delta <= 5 && year_delta > 3)
+        return "SEMINOU";
+    if(year_delta <= 3)
+        return "NOU";
 }
 
 /*
