@@ -2,10 +2,6 @@
 // Created by Cocon on 23/10/2022.
 //
 
-#ifndef PA_P2_CONTENIDORBROSSA_H
-#define PA_P2_CONTENIDORBROSSA_H
-
-
 #include <string>
 
 class ContenidorBrossa {
@@ -37,6 +33,3 @@ public:
     std::string getReciclat();
     ~ContenidorBrossa();
 };
-
-
-#endif PA_P2_CONTENIDORBROSSA_H

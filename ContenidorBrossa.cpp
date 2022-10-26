@@ -8,7 +8,11 @@
 #include <iostream>
 
 ContenidorBrossa::ContenidorBrossa(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara) {
-
+    this->codi = codi;
+    this->color = color;
+    this->ubicacio = ubicacio;
+    this->anyColocacio = anyColocacio;
+    this->tara = tara;
 }
 
 std::string ContenidorBrossa::getTipusBrossa() {
@@ -20,7 +24,7 @@ std::string ContenidorBrossa::getTipusBrossa() {
 }
 
 void ContenidorBrossa::retirarViaPublica() {
-    if(this->anyRetirada == NULL || this->anyRetirada == 0 || this->ubicacio == "")
+    if(&this->anyRetirada == nullptr || this->anyRetirada == 0 || this->ubicacio.empty())
         throw "ERROR: Intent de retirar un contenidor que no està en la via publica!";
 
     time_t now;
@@ -73,8 +77,7 @@ std::string ContenidorBrossa::getEstat() {
         return "VELL";
     if(year_delta <= 5 && year_delta > 3)
         return "SEMINOU";
-    if(year_delta <= 3)
-        return "NOU";
+    return "NOU";
 }
 
 /*
@@ -96,9 +99,6 @@ void ContenidorBrossa::toString() {
     std::cout << "Tara: " << this->tara << std::endl;
 }
 
-void ContenidorBrossa::buidat(float pes) {
-
-}
 
 std::string ContenidorBrossa::getType() {
     return std::string();
@@ -109,5 +109,9 @@ std::string ContenidorBrossa::getReciclat() {
 }
 
 ContenidorBrossa::~ContenidorBrossa() {
+
+}
+
+ContenidorBrossa::ContenidorBrossa() {
 
 }
