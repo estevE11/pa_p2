@@ -23,6 +23,7 @@ private:
 protected:
     float tara;
 public:
+    ContenidorBrossa();
     ContenidorBrossa(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara);
     std::string getTipusBrossa();
     void retirarViaPublica();

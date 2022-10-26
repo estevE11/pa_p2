@@ -5,13 +5,11 @@
 class Poblacio {
 private:
     struct node {
-        ContenidorBrossa * con;
+        ContenidorBrossa* con;
         node* seg;
     };
 
-    /**
-     * Array per emmagatzemar els nodes capçelera de les llistes enllaçades
-     */
+    // Array per emmagatzemar els nodes capçelera de les llistes enllaçades
     node **contenidor;
 
 public:
