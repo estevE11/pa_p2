@@ -9,7 +9,11 @@ ContenidorBrossa::ContenidorBrossa(std::string codi, int color, std::string ubic
 }
 
 std::string ContenidorBrossa::getTipusBrossa() {
-    return std::string();
+    if(this->color == this->MARRO) return "Organic";
+    if(this->color == this->VERD) return "Vidre";
+    if(this->color == this->GROC) return "Plastic";
+    if(this->color == this->GRIS) return "Resta";
+    return "Paper";
 }
 
 void ContenidorBrossa::retirarViaPublica() {

@@ -10,9 +10,9 @@
 
 class ContenidorBrossa {
 private:
-    static const int VERMELL = 0,
+    static const int MARRO = 0,
                     VERD = 1,
-                    GROG = 2,
+                    GROC = 2,
                     BLAU = 3,
                     GRIS = 4;
     std::string codi;
