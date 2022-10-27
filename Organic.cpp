@@ -11,7 +11,7 @@ Organic::Organic(std::string codi, float tara) : ContenidorBrossa(codi, 0, "", 0
 }
 
 void Organic::buidat(float pes) {
-    this->reciclat += (pes - this->tara)*.9f;
+    this->reciclat += (pes - (this->tara*1000))*.9f;
 }
 
 std::string Organic::getReciclat() {
