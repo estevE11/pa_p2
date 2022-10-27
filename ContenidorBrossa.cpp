@@ -6,6 +6,7 @@
 
 #include <time.h>
 #include <iostream>
+#include <string>
 
 ContenidorBrossa::ContenidorBrossa(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara) {
     this->codi = codi;
@@ -15,11 +16,16 @@ ContenidorBrossa::ContenidorBrossa(std::string codi, int color, std::string ubic
     this->tara = tara;
 }
 
+ContenidorBrossa::ContenidorBrossa(std::string codi, int color, float tara) : ContenidorBrossa(codi, color, "", 0, tara) {
+
+}
+
+
 std::string ContenidorBrossa::getTipusBrossa() {
-    if(this->color == this->MARRO) return "Organic";
-    if(this->color == this->VERD) return "Vidre";
-    if(this->color == this->GROC) return "Plastic";
-    if(this->color == this->GRIS) return "Resta";
+    if(this->color == ContenidorBrossa::MARRO) return "Organic";
+    if(this->color == ContenidorBrossa::VERD) return "Vidre";
+    if(this->color == ContenidorBrossa::GROC) return "Plastic";
+    if(this->color == ContenidorBrossa::GRIS) return "Resta";
     return "Paper";
 }
 
@@ -91,21 +97,13 @@ std::string ContenidorBrossa::getEstat() {
 void ContenidorBrossa::toString() {
     std::cout << "Codi: " << this->codi << std::endl;
     std::cout << "Color: " << this->getTipusBrossa() << std::endl;
-    std::cout << "Ubicació: ";
+    std::cout << "Ubicacio: ";
     if(this->ubicacio != "")
         std::cout << this->ubicacio;
     else
         std::cout << "Retirat";
+    std::cout << std::endl;
     std::cout << "Tara: " << this->tara << std::endl;
-}
-
-
-std::string ContenidorBrossa::getType() {
-    return std::string();
-}
-
-std::string ContenidorBrossa::getReciclat() {
-    return std::string();
 }
 
 ContenidorBrossa::~ContenidorBrossa() {
@@ -114,4 +112,8 @@ ContenidorBrossa::~ContenidorBrossa() {
 
 ContenidorBrossa::ContenidorBrossa() {
 
+}
+
+bool ContenidorBrossa::operator==(ContenidorBrossa *p) {
+    return this->codi == p->getCodi();
 }

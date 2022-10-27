@@ -21,6 +21,7 @@ protected:
 public:
     ContenidorBrossa();
     ContenidorBrossa(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara);
+    ContenidorBrossa(std::string codi, int color, float tara);
     std::string getTipusBrossa();
     void retirarViaPublica();
     std::string getUbicacio();
@@ -29,7 +30,9 @@ public:
     std::string getEstat();
     void toString();
     virtual void buidat(float pes) = 0; // Abstracte
-    std::string getType();
-    std::string getReciclat();
+    virtual std::string getType() = 0; // Abstracte
+    virtual std::string getReciclat() = 0;
     ~ContenidorBrossa();
+
+    bool operator==(ContenidorBrossa *p);
 };
