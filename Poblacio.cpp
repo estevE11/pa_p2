@@ -22,10 +22,6 @@ Poblacio::~Poblacio() {
     delete this->contenidors;
 }
 
-void Poblacio::eliminarContenidor(ContenidorBrossa* c) {
-
-}
-
 void Poblacio::afegirContenidor(ContenidorBrossa* p) {
     std::string t = p->getType();
     int id = 0;
@@ -79,6 +75,10 @@ void Poblacio::afegirContenidor(std::string codi, int color, std::string ubicaci
             throw("El color no hi es!");
     }
     this->afegirContenidor(c);
+}
+
+void Poblacio::eliminarContenidor(ContenidorBrossa* c) {
+
 }
 
 std::string Poblacio::hiEs(std::string codi) {
