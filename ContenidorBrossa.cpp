@@ -20,6 +20,13 @@ ContenidorBrossa::ContenidorBrossa(std::string codi, int color, float tara) : Co
 
 }
 
+ContenidorBrossa::ContenidorBrossa() {
+
+}
+
+ContenidorBrossa::~ContenidorBrossa() {
+
+}
 
 std::string ContenidorBrossa::getTipusBrossa() {
     if(this->color == ContenidorBrossa::MARRO) return "Organic";
@@ -104,14 +111,6 @@ void ContenidorBrossa::toString() {
         std::cout << "Retirat";
     std::cout << std::endl;
     std::cout << "Tara: " << this->tara << std::endl;
-}
-
-ContenidorBrossa::~ContenidorBrossa() {
-
-}
-
-ContenidorBrossa::ContenidorBrossa() {
-
 }
 
 bool ContenidorBrossa::operator==(ContenidorBrossa *p) {

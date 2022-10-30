@@ -5,9 +5,10 @@
 #include "Paper.h"
 
 Paper::Paper(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 3, ubicacio, anyColocacio, tara){
+    this->reciclat = 0;
 }
 
-Paper::Paper(std::string codi, float tara) : ContenidorBrossa(codi, 3, "", 0, tara){
+Paper::Paper(std::string codi, float tara) : Paper(codi, "", 0, tara) {
 }
 
 void Paper::buidat(float pes) {

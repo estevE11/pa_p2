@@ -5,9 +5,10 @@
 #include "Organic.h"
 
 Organic::Organic(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 0, ubicacio, anyColocacio, tara){
+    this->reciclat = 0;
 }
 
-Organic::Organic(std::string codi, float tara) : ContenidorBrossa(codi, 0, "", 0, tara){
+Organic::Organic(std::string codi, float tara) : Organic(codi, "", 0, tara){
 }
 
 void Organic::buidat(float pes) {
