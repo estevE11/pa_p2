@@ -1,4 +1,9 @@
 #include "Poblacio.h"
+#include "Organic.h"
+#include "Vidre.h"
+#include "Paper.h"
+#include "Rebuig.h"
+#include "Plastic.h"
 
 #include <iostream>
 
@@ -38,6 +43,7 @@ void Poblacio::afegirContenidor(ContenidorBrossa* p) {
         this->contenidors[id] = n;
         return;
     }
+
     if(curr->con == p) throw("El contenidor ja esxisteix!");
     while(curr->seg) {
         curr = curr->seg;
@@ -46,33 +52,64 @@ void Poblacio::afegirContenidor(ContenidorBrossa* p) {
 
     node* n = new node;
     n->con = p;
+    n->seg = nullptr;
     curr->seg = n;
 }
 
 void Poblacio::afegirContenidor(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara) {
-
+    ContenidorBrossa *c;
+    switch (color) {
+        case 0:
+            c = new Organic(codi,ubicacio,anyColocacio,tara);
+            break;
+        case 1:
+            c = new Vidre(codi,ubicacio,anyColocacio,tara);
+            break;
+        case 2:
+            c = new Plastic(codi,ubicacio,anyColocacio,tara);
+            break;
+        case 3:
+            c = new Paper(codi,ubicacio,anyColocacio,tara);
+            break;
+        case 4:
+            c = new Rebuig(codi,ubicacio,anyColocacio,tara);
+            break;
+        //L'enunciat no indica que passa si el color que es reb no es correcte, per tant hem proposat una manera
+        default:
+            throw("El color no hi es!");
+    }
+    this->afegirContenidor(c);
 }
 
 std::string Poblacio::hiEs(std::string codi) {
-
+    for(int i = 0; i < 5; i++) {
+        node* curr = this->contenidors[i];
+        if(curr == nullptr) continue;
+        if(curr->con->getCodi() == codi) return curr->con->getTipusBrossa();
+        while(curr->seg) {
+            curr = curr->seg;
+            if(curr->con->getCodi() == codi) return curr->con->getTipusBrossa();
+        }
+    }
+    throw("El contenidor no hi es!");
 }
 
 ContenidorBrossa Poblacio::*mesRendiment() {
-    
-}
 
-int Poblacio::getQuants() {
-    
-}
-
-void Poblacio::toString() {
-    
-}
-
-ContenidorBrossa *Poblacio::mesRendiment() {
-    return nullptr;
 }
 
 int Poblacio::getQuants(int color) {
     return 0;
+}
+
+int Poblacio::getQuants() {
+
+}
+
+void Poblacio::toString() {
+
+}
+
+ContenidorBrossa *Poblacio::mesRendiment() {
+    return nullptr;
 }

@@ -14,7 +14,10 @@ int main() {
     Poblacio p;
     p.afegirContenidor(&organic);
     p.afegirContenidor(&organic2);
-    p.afegirContenidor(&organic2);
+
+    p.afegirContenidor("XY-002", 1, "Ubicacaio rando", 2021, 6);
+
+    std::cout << p.hiEs("XY-002") << std::endl;
 
     return 0;
 }

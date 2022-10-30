@@ -4,10 +4,10 @@
 #include <iostream>
 #include "Plastic.h"
 
-Plastic::Plastic(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 0, ubicacio, anyColocacio, tara){
+Plastic::Plastic(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 2, ubicacio, anyColocacio, tara){
 }
 
-Plastic::Plastic(std::string codi, float tara) : ContenidorBrossa(codi, 0, "", 0, tara){
+Plastic::Plastic(std::string codi, float tara) : ContenidorBrossa(codi, 2, "", 0, tara){
 }
 
 void Plastic::buidat(float pes) {

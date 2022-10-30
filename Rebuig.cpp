@@ -4,10 +4,10 @@
 #include <iostream>
 #include "Rebuig.h"
 
-Rebuig::Rebuig(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 0, ubicacio, anyColocacio, tara){
+Rebuig::Rebuig(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 4, ubicacio, anyColocacio, tara){
 }
 
-Rebuig::Rebuig(std::string codi, float tara) : ContenidorBrossa(codi, 0, "", 0, tara){
+Rebuig::Rebuig(std::string codi, float tara) : ContenidorBrossa(codi, 4, "", 0, tara){
 }
 
 void Rebuig::buidat(float pes) {
