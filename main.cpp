@@ -2,6 +2,7 @@
 
 #include "Organic.h"
 #include "Poblacio.h"
+#include "Rebuig.h"
 
 int main() {
     Organic organic("XY-000",  "follandome a tu madre", 2022, 12);
@@ -9,6 +10,9 @@ int main() {
 
     Organic organic2("XY-001",  "follandome a tu madre", 2022, 12);
     organic.buidat(200);
+
+    Rebuig rebuig("XY-003",  "follandome a tu madre", 2022, 12);
+    rebuig.buidat(200);
 
 
     Poblacio p;
@@ -18,6 +22,13 @@ int main() {
     p.afegirContenidor("XY-002", 1, "Ubicacaio rando", 2021, 6);
 
     std::cout << p.hiEs("XY-002") << std::endl;
+
+    organic.buidat(100);
+    organic2.buidat(200);
+    organic2.buidat(200);
+
+    ContenidorBrossa* mesRen = p.mesRendiment();
+    mesRen->toString();
 
     return 0;
 }

@@ -94,8 +94,20 @@ std::string Poblacio::hiEs(std::string codi) {
     throw("El contenidor no hi es!");
 }
 
-ContenidorBrossa Poblacio::*mesRendiment() {
-
+ContenidorBrossa* Poblacio::mesRendiment() {
+    // Creem un contenidor base que tindrar el valor de reciclat a 0
+    // Per poder-lo comparar amb el primer contenidor
+    ContenidorBrossa* resultat = new Organic("base", 0);
+    for(int i = 0; i < 5; i++) {
+        node* curr = this->contenidors[i];
+        if(curr == nullptr) continue;
+        if(resultat->getCodi() == "base") resultat = curr->con;
+        while(curr->seg) {
+            curr = curr->seg;
+            if(curr->con->getReciclat() > resultat->getReciclat()) resultat = curr->con;
+        }
+    }
+    return resultat;
 }
 
 int Poblacio::getQuants(int color) {
@@ -103,13 +115,9 @@ int Poblacio::getQuants(int color) {
 }
 
 int Poblacio::getQuants() {
-
+    return 0;
 }
 
 void Poblacio::toString() {
 
-}
-
-ContenidorBrossa *Poblacio::mesRendiment() {
-    return nullptr;
 }

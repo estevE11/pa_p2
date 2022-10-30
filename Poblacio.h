@@ -21,7 +21,7 @@ public:
     // Se li passa un codi i ha de retornar el color del contenidor, sino existeix llança una exepcio
     std::string hiEs(std::string codi);
     void eliminarContenidor(ContenidorBrossa* c);
-    ContenidorBrossa *mesRendiment();
+    ContenidorBrossa* mesRendiment();
     int getQuants(int color);
     int getQuants();
     void toString();
