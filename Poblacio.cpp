@@ -1,6 +1,7 @@
 #include "Poblacio.h"
 
 Poblacio::Poblacio() {
+    this->contenidors = new node*[5];
 }
 
 Poblacio::Poblacio(ContenidorBrossa *g) {

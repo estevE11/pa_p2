@@ -10,7 +10,7 @@ private:
     };
 
     // Array per emmagatzemar els nodes capçelera de les llistes enllaçades
-    node **contenidor;
+    node **contenidors;
 
 public:
     Poblacio();
