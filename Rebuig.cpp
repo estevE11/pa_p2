@@ -11,7 +11,7 @@ Rebuig::Rebuig(std::string codi, float tara) : ContenidorBrossa(codi, 0, "", 0, 
 }
 
 void Rebuig::buidat(float pes) {
-    this->reciclat += (pes - (this->tara*1000))*.75f;
+    this->reciclat += ((pes - this->tara)/1000)*.75f;
 }
 
 std::string Rebuig::getReciclat() {
