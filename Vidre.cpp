@@ -1,7 +1,7 @@
 //
 // Created by ziade on 27/10/2022.
 //
-#include <iostream>ç
+#include <iostream>
 #include "Vidre.h"
 
 Vidre::Vidre(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 0, ubicacio, anyColocacio, tara){

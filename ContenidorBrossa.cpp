@@ -4,7 +4,7 @@
 
 #include "ContenidorBrossa.h"
 
-#include <time.h>
+#include <ctime>
 #include <iostream>
 #include <string>
 
@@ -25,7 +25,7 @@ std::string ContenidorBrossa::getTipusBrossa() {
     if(this->color == ContenidorBrossa::MARRO) return "Organic";
     if(this->color == ContenidorBrossa::VERD) return "Vidre";
     if(this->color == ContenidorBrossa::GROC) return "Plastic";
-    if(this->color == ContenidorBrossa::GRIS) return "Resta";
+    if(this->color == ContenidorBrossa::GRIS) return "Rebuig";
     return "Paper";
 }
 
@@ -115,5 +115,13 @@ ContenidorBrossa::ContenidorBrossa() {
 }
 
 bool ContenidorBrossa::operator==(ContenidorBrossa *p) {
-    return this->codi == p->getCodi();
+    return !(this>p) && !(this<p);
+}
+
+bool ContenidorBrossa::operator>(ContenidorBrossa *p) {
+    return this->codi.compare(p->getCodi()) > 0;
+}
+
+bool ContenidorBrossa::operator<(ContenidorBrossa *p) {
+    return this->codi.compare(p->getCodi()) < 0;
 }

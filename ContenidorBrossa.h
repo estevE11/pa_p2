@@ -1,6 +1,7 @@
 //
 // Created by Cocon on 23/10/2022.
 //
+#pragma once
 
 #include <string>
 
@@ -35,4 +36,6 @@ public:
     ~ContenidorBrossa();
 
     bool operator==(ContenidorBrossa *p);
+    bool operator>(ContenidorBrossa *p);
+    bool operator<(ContenidorBrossa *p);
 };
