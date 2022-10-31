@@ -57,7 +57,7 @@ std::string ContenidorBrossa::getUbicacio() {
 
 // Si el parametre es null vol dir q es retira el contenidor (cridar funcio "retirarViaPublica")
 void ContenidorBrossa::setUbicacio(std::string ubicacio) {
-    if(ubicacio == "") {
+    if(ubicacio.empty()) {
         this->retirarViaPublica();
         return;
     }
@@ -113,8 +113,9 @@ void ContenidorBrossa::toString() {
     std::cout << "Tara: " << this->tara << std::endl;
 }
 
+
 bool ContenidorBrossa::operator==(ContenidorBrossa *p) {
-    return !(this>p) && !(this<p);
+    return this->codi.compare(p->getCodi()) == 0;
 }
 
 bool ContenidorBrossa::operator>(ContenidorBrossa *p) {

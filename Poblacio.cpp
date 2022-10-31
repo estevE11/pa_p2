@@ -31,8 +31,21 @@ void Poblacio::afegirContenidor(ContenidorBrossa* p) {
     else if(t == "vidre") id = ContenidorBrossa::VERD;
     else if(t == "paper") id = ContenidorBrossa::BLAU;
 
-    node* curr = this->contenidors[id];
-    if(curr == nullptr) {
+    node* target = nullptr;
+
+    for(int i = 0; i < 5; i++) {
+        node* curr = this->contenidors[i];
+        if(curr == nullptr) continue;
+        std::cout << curr->con->getCodi() << " = " << p->getCodi() << " = " << (curr->con == p) << std::endl;
+        if(curr->con == p) throw("El contenidor ja esxisteix!");
+        while(curr->seg) {
+            curr = curr->seg;
+            if(curr->con == p) throw("El contenidor ja esxisteix!");
+        }
+        if(i == id) target = curr;
+    }
+
+    if(target == nullptr) {
         node* n = new node;
         n->con = p;
         n->seg = nullptr;
@@ -40,16 +53,10 @@ void Poblacio::afegirContenidor(ContenidorBrossa* p) {
         return;
     }
 
-    if(curr->con == p) throw("El contenidor ja esxisteix!");
-    while(curr->seg) {
-        curr = curr->seg;
-        if(curr->con == p) throw("El contenidor ja esxisteix!");
-    }
-
     node* n = new node;
     n->con = p;
     n->seg = nullptr;
-    curr->seg = n;
+    target->seg = n;
 }
 
 void Poblacio::afegirContenidor(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara) {
@@ -130,7 +137,39 @@ int Poblacio::getQuants() {
 }
 
 void Poblacio::toString() {
+    for(int i = 0; i < 5; i ++) {
+        node* curr = this->contenidors[i];
+        if(curr == nullptr) continue;
 
+        std::cout << ". : Contenidors ";
+
+        switch (i) {
+            case ContenidorBrossa::MARRO:
+                std::cout << "marrons : ." << std::endl;
+                break;
+            case ContenidorBrossa::VERD:
+                std::cout << "verds : ." << std::endl;
+                break;
+            case ContenidorBrossa::GROC:
+                std::cout << "grocs : ." << std::endl;
+                break;
+            case ContenidorBrossa::BLAU:
+                std::cout << "blaus : ." << std::endl;
+                break;
+            case ContenidorBrossa::GRIS:
+                std::cout << "grisos : ." << std::endl;
+                break;
+        }
+
+
+        curr->con->toString();
+        std::cout << std::endl;
+        while(curr->seg) {
+            curr->seg->con->toString();
+            std::cout << std::endl;
+            curr = curr->seg;
+        }
+    }
 }
 
 bool Poblacio::operator==(Poblacio d) {
