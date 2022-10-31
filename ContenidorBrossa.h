@@ -30,7 +30,8 @@ public:
     void setUbicacio(std::string ubicacio);
     std::string getCodi();
     std::string getEstat();
-    void toString();
+
+    virtual void toString();
     virtual void buidat(float pes) = 0; // Abstracte
     virtual std::string getType() = 0; // Abstracte
     virtual std::string getReciclat() = 0;
