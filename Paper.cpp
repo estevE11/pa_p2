@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Paper.h"
 
-Paper::Paper(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 3, ubicacio, anyColocacio, tara){
+Paper::Paper(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, ContenidorBrossa::BLAU, ubicacio, anyColocacio, tara){
     this->reciclat = 0;
 }
 

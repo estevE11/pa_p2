@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Plastic.h"
 
-Plastic::Plastic(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 2, ubicacio, anyColocacio, tara){
+Plastic::Plastic(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, ContenidorBrossa::GROC, ubicacio, anyColocacio, tara){
     this->reciclat = 0;
 }
 

@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Rebuig.h"
 
-Rebuig::Rebuig(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 4, ubicacio, anyColocacio, tara){
+Rebuig::Rebuig(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, ContenidorBrossa::GRIS, ubicacio, anyColocacio, tara){
     this->reciclat = 0;
 }
 

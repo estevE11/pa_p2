@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Vidre.h"
 
-Vidre::Vidre(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, 1, ubicacio, anyColocacio, tara){
+Vidre::Vidre(std::string codi, std::string ubicacio, int anyColocacio, float tara) : ContenidorBrossa(codi, ContenidorBrossa::VERD, ubicacio, anyColocacio, tara){
     this->reciclat = 0;
 }
 

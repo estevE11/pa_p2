@@ -7,11 +7,6 @@
 
 class ContenidorBrossa {
 private:
-    static const int MARRO = 0,
-                    VERD = 1,
-                    GROC = 2,
-                    BLAU = 3,
-                    GRIS = 4;
     std::string codi;
     int color;
     std::string ubicacio;
@@ -20,6 +15,12 @@ private:
 protected:
     float tara;
 public:
+    static const int MARRO = 1,
+            VERD = 3,
+            GROC = 0,
+            BLAU = 4,
+            GRIS = 2;
+
     ContenidorBrossa();
     ContenidorBrossa(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara);
     ContenidorBrossa(std::string codi, int color, float tara);
