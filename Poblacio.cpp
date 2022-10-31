@@ -55,19 +55,19 @@ void Poblacio::afegirContenidor(ContenidorBrossa* p) {
 void Poblacio::afegirContenidor(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara) {
     ContenidorBrossa *c;
     switch (color) {
-        case 0:
+        case ContenidorBrossa::MARRO:
             c = new Organic(codi,ubicacio,anyColocacio,tara);
             break;
-        case 1:
+        case ContenidorBrossa::VERD:
             c = new Vidre(codi,ubicacio,anyColocacio,tara);
             break;
-        case 2:
+        case ContenidorBrossa::GROC:
             c = new Plastic(codi,ubicacio,anyColocacio,tara);
             break;
-        case 3:
+        case ContenidorBrossa::BLAU:
             c = new Paper(codi,ubicacio,anyColocacio,tara);
             break;
-        case 4:
+        case ContenidorBrossa::GRIS:
             c = new Rebuig(codi,ubicacio,anyColocacio,tara);
             break;
         //L'enunciat no indica que passa si el color que es reb no es correcte, per tant hem proposat una manera
@@ -111,7 +111,14 @@ ContenidorBrossa* Poblacio::mesRendiment() {
 }
 
 int Poblacio::getQuants(int color) {
-    return 0;
+    int res = 1;
+    node* curr = this->contenidors[color];
+    if(curr == nullptr) return 0;
+    while(curr->seg) {
+        res++;
+        curr = curr->seg;
+    }
+    return res;
 }
 
 int Poblacio::getQuants() {

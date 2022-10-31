@@ -18,8 +18,9 @@ int main() {
     Poblacio p;
     p.afegirContenidor(&organic);
     p.afegirContenidor(&organic2);
+    p.afegirContenidor(&rebuig);
 
-    p.afegirContenidor("XY-002", 1, "Ubicacaio rando", 2021, 6);
+    p.afegirContenidor("XY-002", ContenidorBrossa::BLAU, "Ubicacaio rando", 2021, 6);
 
     std::cout << p.hiEs("XY-002") << std::endl;
 
@@ -29,6 +30,9 @@ int main() {
 
     ContenidorBrossa* mesRen = p.mesRendiment();
     mesRen->toString();
+
+    int nMarro = p.getQuants(ContenidorBrossa::MARRO);
+    std::cout << nMarro << std::endl;
 
     return 0;
 }
