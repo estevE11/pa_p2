@@ -37,10 +37,10 @@ void Poblacio::afegirContenidor(ContenidorBrossa* p) {
         node* curr = this->contenidors[i];
         if(curr == nullptr) continue;
         std::cout << curr->con->getCodi() << " = " << p->getCodi() << " = " << (curr->con == p) << std::endl;
-        if(curr->con == p) throw("El contenidor ja esxisteix!");
+        if(curr->con->getCodi() == p->getCodi()) throw("El contenidor ja esxisteix!");
         while(curr->seg) {
             curr = curr->seg;
-            if(curr->con == p) throw("El contenidor ja esxisteix!");
+            if(curr->con->getCodi() == p->getCodi()) throw("El contenidor ja esxisteix!");
         }
         if(i == id) target = curr;
     }
