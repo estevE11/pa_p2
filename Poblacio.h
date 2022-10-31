@@ -25,4 +25,8 @@ public:
     int getQuants(int color);
     int getQuants();
     void toString();
+
+    bool operator==(Poblacio d);
+    bool operator<(Poblacio d);
+    bool operator>(Poblacio d);
 };

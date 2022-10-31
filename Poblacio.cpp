@@ -132,3 +132,15 @@ int Poblacio::getQuants() {
 void Poblacio::toString() {
 
 }
+
+bool Poblacio::operator==(Poblacio d) {
+    return !(this > &d) && !(this < &d);
+}
+
+bool Poblacio::operator<(Poblacio d) {
+    return this->getQuants() < d.getQuants();
+}
+
+bool Poblacio::operator>(Poblacio d) {
+    return this->getQuants() > d.getQuants();
+}
