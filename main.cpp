@@ -21,6 +21,7 @@ int main() {
     p.afegirContenidor(&rebuig);
 
     p.afegirContenidor("XY-002", ContenidorBrossa::BLAU, "Ubicacaio rando", 2021, 6);
+    p.afegirContenidor("XY-004", ContenidorBrossa::GROC, "Ubicacaio GROC", 2021, 10);
 
     std::cout << p.hiEs("XY-002") << std::endl;
 
@@ -33,6 +34,9 @@ int main() {
 
     int nMarro = p.getQuants(ContenidorBrossa::MARRO);
     std::cout << nMarro << std::endl;
+
+    int conTotals = p.getQuants();
+    std::cout << conTotals << std::endl;
 
     return 0;
 }
