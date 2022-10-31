@@ -113,7 +113,7 @@ void ContenidorBrossa::toString() {
     std::cout << "Tara: " << this->tara << std::endl;
 }
 
-
+// TODO: Mirar pq cojones no funciona la sobrecarga del operador. (preguntar al rems pq llevo +1h buscando)
 bool ContenidorBrossa::operator==(ContenidorBrossa *p) {
     return this->codi.compare(p->getCodi()) == 0;
 }
