@@ -113,6 +113,15 @@ void ContenidorBrossa::toString() {
     std::cout << "Tara: " << this->tara << std::endl;
 }
 
+int ContenidorBrossa::getID(std::string t) {
+    if(t == "plastic") return ContenidorBrossa::GROC;
+    if(t == "organic") return ContenidorBrossa::MARRO;
+    if(t == "rebuig") return ContenidorBrossa::GRIS;
+    if(t == "vidre") return ContenidorBrossa::VERD;
+    if(t == "paper") return ContenidorBrossa::BLAU;
+    return -1;
+}
+
 // TODO: Mirar pq cojones no funciona la sobrecarga del operador. (preguntar al rems pq llevo +1h buscando)
 bool ContenidorBrossa::operator==(ContenidorBrossa *p) {
     return this->codi.compare(p->getCodi()) == 0;
@@ -125,3 +134,4 @@ bool ContenidorBrossa::operator>(ContenidorBrossa *p) {
 bool ContenidorBrossa::operator<(ContenidorBrossa *p) {
     return this->codi.compare(p->getCodi()) < 0;
 }
+

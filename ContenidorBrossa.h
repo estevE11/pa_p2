@@ -31,6 +31,8 @@ public:
     std::string getCodi();
     std::string getEstat();
 
+    static int getID(std::string type);
+
     virtual void toString();
     virtual void buidat(float pes) = 0; // Abstracte
     virtual std::string getType() = 0; // Abstracte

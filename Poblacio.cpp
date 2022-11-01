@@ -23,13 +23,7 @@ Poblacio::~Poblacio() {
 }
 
 void Poblacio::afegirContenidor(ContenidorBrossa* p) {
-    std::string t = p->getType();
-    int id = 0;
-    if(t == "plastic") id = ContenidorBrossa::GROC;
-    else if(t == "organic") id = ContenidorBrossa::MARRO;
-    else if(t == "rebuig") id = ContenidorBrossa::GRIS;
-    else if(t == "vidre") id = ContenidorBrossa::VERD;
-    else if(t == "paper") id = ContenidorBrossa::BLAU;
+    int id = ContenidorBrossa::getID(p->getType());
 
     node* target = nullptr;
 
