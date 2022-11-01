@@ -17,6 +17,9 @@ int main() {
     Organic organic2("XY-001",  "follandome a tu madre", 2022, 12);
     p.afegirContenidor(&organic2);
 
+    Organic organic3("XY-015",  "follandome a tu madre", 2022, 12);
+    p.afegirContenidor(&organic3);
+
     Rebuig rebuig("XY-003",  "follandome a tu madre", 2022, 12);
     p.afegirContenidor(&rebuig);
 
@@ -24,14 +27,14 @@ int main() {
     p.afegirContenidor(&paper);
 
     int conTotals = p.getQuants();
-    test("Contenidors totals", 4, conTotals);
+    test("Contenidors totals", 5, conTotals);
 
     p.afegirContenidor("XY-002", ContenidorBrossa::BLAU, "Ubicacaio rando", 2021, 6);
     p.afegirContenidor("XY-004", ContenidorBrossa::GROC, "Ubicacaio GROC", 2021, 10);
     p.afegirContenidor("XY-007", ContenidorBrossa::BLAU, "Ubicacaio blau", 2021, 10);
 
     conTotals = p.getQuants();
-    test("Contenidors totals", 7, conTotals);
+    test("Contenidors totals", 8, conTotals);
 
     organic.buidat(14);
     organic.buidat(200);
@@ -53,22 +56,26 @@ int main() {
 
     p.eliminarContenidor(&organic2);
     conTotals = p.getQuants();
-    test("Contenidors eliminats", 6, conTotals);
+    test("Contenidor eliminats", 7, conTotals);
 
     p.eliminarContenidor(&paper);
     conTotals = p.getQuants();
-    test("Contenidors eliminats", 5, conTotals);
+    test("Contenidor eliminats", 6, conTotals);
 
     mesRen = p.mesRendiment();
     test("Rendiment 3", "XY-003", mesRen->getCodi());
+
+    p.eliminarContenidor(&organic);
+    conTotals = p.getQuants();
+    test("Contenidor eliminats", 5, conTotals);
 
     return 0;
 }
 
 void test(std::string name, int ex, int val) {
     if(val != ex) {
-        std::cout << "Fallo test: " << name << std::endl;
-        std::cout << "Deberia ser: " << ex << " per es " << val << std::endl;
+        std::cout << "> Fallo test: " << name;
+        std::cout << ". Deberia ser: " << ex << " per es " << val << std::endl;
         //throw("");
     }
     std::cout << "Test pasado: " << name  << " (" << val << ")" << std::endl;
@@ -76,7 +83,7 @@ void test(std::string name, int ex, int val) {
 
 void test(std::string name, std::string ex, std::string val) {
     if(val != ex) {
-        std::cout << "Fallo test: " << name << std::endl;
+        std::cout << "> Fallo test: " << name << std::endl;
         std::cout << "Deberia ser: " << ex << " per es " << val << std::endl;
         //throw("");
     }
