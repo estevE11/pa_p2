@@ -23,24 +23,18 @@ Poblacio::~Poblacio() {
 }
 
 void Poblacio::afegirContenidor(ContenidorBrossa* p) {
-    std::string t = p->getType();
-    int id = 0;
-    if(t == "plastic") id = ContenidorBrossa::GROC;
-    else if(t == "organic") id = ContenidorBrossa::MARRO;
-    else if(t == "rebuig") id = ContenidorBrossa::GRIS;
-    else if(t == "vidre") id = ContenidorBrossa::VERD;
-    else if(t == "paper") id = ContenidorBrossa::BLAU;
+    int id = ContenidorBrossa::getID(p->getType());
 
     node* target = nullptr;
 
     for(int i = 0; i < 5; i++) {
         node* curr = this->contenidors[i];
         if(curr == nullptr) continue;
-        std::cout << curr->con->getCodi() << " = " << p->getCodi() << " = " << (curr->con == p) << std::endl;
-        if(curr->con->getCodi() == p->getCodi()) throw("El contenidor ja esxisteix!");
+        // No utilitzem el operador "==" directament en els operadors ja que no hem aconseguit que funcioni
+        if(curr->con->getCodi() == p->getCodi()) throw("El contenidor ja existeix!");
         while(curr->seg) {
             curr = curr->seg;
-            if(curr->con->getCodi() == p->getCodi()) throw("El contenidor ja esxisteix!");
+            if(curr->con->getCodi() == p->getCodi()) throw("El contenidor ja existeix!");
         }
         if(i == id) target = curr;
     }
@@ -139,6 +133,7 @@ ContenidorBrossa* Poblacio::mesRendiment() {
         node* curr = this->contenidors[i];
         if(curr == nullptr) continue;
         if(resultat->getCodi() == "base") resultat = curr->con;
+        if(curr->con->getReciclat() > resultat->getReciclat()) resultat = curr->con;
         while(curr->seg) {
             curr = curr->seg;
             if(curr->con->getReciclat() > resultat->getReciclat()) resultat = curr->con;
