@@ -5,6 +5,9 @@
 #include "Rebuig.h"
 #include "Paper.h"
 
+void test(std::string name, int ex, int val);
+void test(std::string name, std::string ex, std::string val);
+
 int main() {
     Poblacio p;
 
@@ -31,15 +34,8 @@ int main() {
 
     std::cout << p.hiEs("XY-004") << std::endl;
 
-
-    std::cout << std::endl << std::endl;
-    p.toString();
-    std::cout << std::endl << std::endl;
-
     ContenidorBrossa* mesRen = p.mesRendiment();
-    std::cout << "\nMes rendiment" << std::endl;
-    mesRen->toString();
-
+    test("Rendiment 1", "XY-003", mesRen->getCodi());
 
     organic.buidat(100);
     organic2.buidat(200);
@@ -47,8 +43,7 @@ int main() {
     paper.buidat(200);
 
     mesRen = p.mesRendiment();
-    std::cout << "\nMes rendiment 2" << std::endl;
-    mesRen->toString();
+    test("Rendiment 2", "XY-001", mesRen->getCodi());
 
     std::cout << std::endl;
     for(int i = 0; i < 5; i++) {
@@ -56,11 +51,25 @@ int main() {
         std::cout  << n << std::endl;
     }
     int conTotals = p.getQuants();
-    std::cout << "Numero total de contenidors: " << conTotals << std::endl;
-
-
-    std::cout << std::endl << std::endl << std::endl << std::endl << std::endl;
-    p.toString();
+    test("Contenidors totals", 6, conTotals);
 
     return 0;
+}
+
+void test(std::string name, int ex, int val) {
+    if(val != ex) {
+        std::cout << "Fallo test: " << name << std::endl;
+        std::cout << "Deberia ser: " << ex << " per es " << val << std::endl;
+        throw("");
+    }
+    std::cout << "Test pasado: " << name  << "(" << val << ")" << std::endl;
+}
+
+void test(std::string name, std::string ex, std::string val) {
+    if(val != ex) {
+        std::cout << "Fallo test: " << name << std::endl;
+        std::cout << "Deberia ser: " << ex << " per es " << val << std::endl;
+        throw("");
+    }
+    std::cout << "Test pasado: " << name  << " (" << val << ")" << std::endl;
 }

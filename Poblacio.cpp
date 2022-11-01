@@ -99,11 +99,12 @@ std::string Poblacio::hiEs(std::string codi) {
 ContenidorBrossa* Poblacio::mesRendiment() {
     // Creem un contenidor base que tindrar el valor de reciclat a 0
     // Per poder-lo comparar amb el primer contenidor
-    ContenidorBrossa* resultat = nullptr;
+    ContenidorBrossa* resultat = new Organic("base", 0);
     for(int i = 0; i < 5; i++) {
         node* curr = this->contenidors[i];
         if(curr == nullptr) continue;
-        if(resultat == nullptr) resultat = curr->con;
+        if(resultat->getCodi() == "base") resultat = curr->con;
+        if(curr->con->getReciclat() > resultat->getReciclat()) resultat = curr->con;
         while(curr->seg) {
             curr = curr->seg;
             if(curr->con->getReciclat() > resultat->getReciclat()) resultat = curr->con;
