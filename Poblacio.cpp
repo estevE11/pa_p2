@@ -97,10 +97,12 @@ void Poblacio::eliminarContenidor(ContenidorBrossa* c) {
                 aux->seg = aux->seg->seg;
                 delete eliminar;
             } else{
+                std::cout << "Aquest contenidor no es troba ubicat." << std::endl;
                 throw ("Aquest contenidor no es troba ubicat.");
             }
         }
     } else{
+        std::cout << "No hi ha contenidors" << std::endl;
         throw ("No hi ha contenidors.");
     }
 
