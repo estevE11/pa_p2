@@ -45,13 +45,13 @@ int main() {
     mesRen = p.mesRendiment();
     test("Rendiment 2", "XY-001", mesRen->getCodi());
 
-    std::cout << std::endl;
-    for(int i = 0; i < 5; i++) {
-        int n = p.getQuants(i);
-        std::cout  << n << std::endl;
-    }
     int conTotals = p.getQuants();
     test("Contenidors totals", 6, conTotals);
+
+    p.eliminarContenidor(&organic);
+
+    conTotals = p.getQuants();
+    test("Contenidors totals", 5, conTotals);
 
     return 0;
 }
