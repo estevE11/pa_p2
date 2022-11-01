@@ -38,7 +38,14 @@ public:
     virtual std::string getReciclat() = 0;
     ~ContenidorBrossa();
 
-    bool operator==(ContenidorBrossa *p);
-    bool operator>(ContenidorBrossa *p);
-    bool operator<(ContenidorBrossa *p);
+    bool operator==(ContenidorBrossa *p){
+        return !(*this>p) && !(*this<p);
+    };
+    bool operator>(ContenidorBrossa *p){
+        return this->codi.compare(p->getCodi()) < 0;
+    };
+    bool operator<(ContenidorBrossa *p){
+        return this->codi.compare(p->getCodi()) > 0;
+    };
+
 };

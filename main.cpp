@@ -12,9 +12,10 @@ int main() {
     Poblacio p;
 
     Organic organic("XY-000",  "carrer 1", 2022, 12);
-    p.afegirContenidor(&organic);
+    Organic organic2("XY-000",  "carrer 2", 2022, 12);
+    std::cout << "organic == organic" << (organic == &organic2)<< std::endl;
 
-    Organic organic2("XY-001",  "carrer 2", 2022, 12);
+    p.afegirContenidor(&organic);
     p.afegirContenidor(&organic2);
 
     Organic organic3("XY-015",  "carrer 3", 2022, 12);

@@ -30,11 +30,10 @@ void Poblacio::afegirContenidor(ContenidorBrossa* p) {
     for(int i = 0; i < 5; i++) {
         node* curr = this->contenidors[i];
         if(curr == nullptr) continue;
-        // No utilitzem el operador "==" directament en els operadors ja que no hem aconseguit que funcioni
-        if(curr->con->getCodi() == p->getCodi()) throw("El contenidor ja existeix!");
+        if(curr->con == p) throw("El contenidor ja existeix!");
         while(curr->seg) {
             curr = curr->seg;
-            if(curr->con->getCodi() == p->getCodi()) throw("El contenidor ja existeix!");
+            if(curr->con == p) throw("El contenidor ja existeix!");
         }
         if(i == id) target = curr;
     }
