@@ -20,10 +20,6 @@ ContenidorBrossa::ContenidorBrossa(std::string codi, int color, float tara) : Co
 
 }
 
-ContenidorBrossa::ContenidorBrossa() {
-
-}
-
 ContenidorBrossa::~ContenidorBrossa() {
 
 }

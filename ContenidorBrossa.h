@@ -21,7 +21,6 @@ public:
             BLAU = 4,
             GRIS = 2;
 
-    ContenidorBrossa();
     ContenidorBrossa(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara);
     ContenidorBrossa(std::string codi, int color, float tara);
     std::string getTipusBrossa();
