@@ -11,27 +11,27 @@ void test(std::string name, std::string ex, std::string val);
 int main() {
     Poblacio p;
 
-    Organic organic("XY-000",  "follandome a tu madre", 2022, 12);
+    Organic organic("XY-000",  "carrer 1", 2022, 12);
     p.afegirContenidor(&organic);
 
-    Organic organic2("XY-001",  "follandome a tu madre", 2022, 12);
+    Organic organic2("XY-001",  "carrer 2", 2022, 12);
     p.afegirContenidor(&organic2);
 
-    Organic organic3("XY-015",  "follandome a tu madre", 2022, 12);
+    Organic organic3("XY-015",  "carrer 3", 2022, 12);
     p.afegirContenidor(&organic3);
 
-    Rebuig rebuig("XY-003",  "follandome a tu madre", 2022, 12);
+    Rebuig rebuig("XY-003",  "carrer 3", 2022, 12);
     p.afegirContenidor(&rebuig);
 
-    Paper paper("XY-010",  "follandome a tu paper", 2022, 30);
+    Paper paper("XY-010",  "carrer 2", 2022, 30);
     p.afegirContenidor(&paper);
 
     int conTotals = p.getQuants();
     test("Contenidors totals", 5, conTotals);
 
-    p.afegirContenidor("XY-002", ContenidorBrossa::BLAU, "Ubicacaio rando", 2021, 6);
-    p.afegirContenidor("XY-004", ContenidorBrossa::GROC, "Ubicacaio GROC", 2021, 10);
-    p.afegirContenidor("XY-007", ContenidorBrossa::BLAU, "Ubicacaio blau", 2021, 10);
+    p.afegirContenidor("XY-002", ContenidorBrossa::BLAU, "carrer 1", 2021, 6);
+    p.afegirContenidor("XY-004", ContenidorBrossa::GROC, "carrer 3", 2021, 10);
+    p.afegirContenidor("XY-007", ContenidorBrossa::BLAU, "carrer 2", 2021, 10);
 
     conTotals = p.getQuants();
     test("Contenidors totals", 8, conTotals);
