@@ -55,7 +55,6 @@ std::string ContenidorBrossa::getUbicacio() {
     return this->ubicacio;
 }
 
-// Si el parametre es null vol dir q es retira el contenidor (cridar funcio "retirarViaPublica")
 void ContenidorBrossa::setUbicacio(std::string ubicacio) {
     if(ubicacio.empty()) {
         this->retirarViaPublica();
@@ -69,15 +68,6 @@ std::string ContenidorBrossa::getCodi() {
     return this->codi;
 }
 
-/*
- * Si té més de 5 anys retorna "vell"
- * Si té entre 3 i 5 anys retorna "seminou".
- * Si té menys de 3 any retorna "nou".
- *
- * Els anys que té un contenidor ve donat per la diferencia entre l’any de la data a dia
-    d’avui i l’any de col·locació. Si el contenidor no està a la via pública el mètode ha
-    de retornar la cadena “retirat”.
- * */
 std::string ContenidorBrossa::getEstat() {
     time_t now;
     struct tm *now_tm;
@@ -88,7 +78,7 @@ std::string ContenidorBrossa::getEstat() {
 
     if(year_delta > 5)
         return "VELL";
-    if(year_delta <= 5 && year_delta > 3)
+    if(year_delta >= 3)
         return "SEMINOU";
     return "NOU";
 }
