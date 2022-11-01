@@ -112,9 +112,9 @@ void Poblacio::eliminarContenidor(ContenidorBrossa* c) {
                 throw ("Aquest contenidor no es troba ubicat.");
             }
         }
+    } else{
+        throw ("No hi ha contenidors.");
     }
-
-
 
 }
 
