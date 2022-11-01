@@ -95,6 +95,15 @@ void Poblacio::eliminarContenidor(ContenidorBrossa* c) {
     else if(t == "paper") id = ContenidorBrossa::BLAU;
 
     node* aux = this->contenidors[id];
+    if(aux == nullptr) throw ("esta buit");
+    if (aux->con==c && aux->seg== nullptr){
+        aux->con= nullptr;
+    } else if(aux->con==c){
+        while (aux->seg){
+            aux->con = aux->seg->con;
+            aux = aux->seg;
+        }
+    }
 
 
 
