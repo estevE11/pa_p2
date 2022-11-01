@@ -83,29 +83,26 @@ void Poblacio::eliminarContenidor(ContenidorBrossa* c) {
     int id = ContenidorBrossa::getID(c->getType());
 
     node* inici = this->contenidors[id];
-    if (inici != nullptr){
-        node* aux = inici;
-        if (inici->con==c){
-            inici = inici->seg;
-            delete aux;
-        }else{
-            while (aux->seg != nullptr && aux->seg->con != c){
-                aux = aux->seg;
-            }
-            if (aux->seg != nullptr && aux->seg->con == c){
-                node* eliminar = aux->seg;
-                aux->seg = aux->seg->seg;
-                delete eliminar;
-            } else{
-                std::cout << "Aquest contenidor no es troba ubicat." << std::endl;
-                throw ("Aquest contenidor no es troba ubicat.");
-            }
-        }
-    } else{
-        std::cout << "No hi ha contenidors" << std::endl;
-        throw ("No hi ha contenidors.");
+
+    if (inici == nullptr) throw ("No hi ha contenidors");
+    node* aux = inici;
+    if (inici->con==c) {
+        this->contenidors[id] = inici->seg;
+        delete aux;
+        return;
     }
 
+    while (aux->seg != nullptr && aux->seg->con != c){
+        aux = aux->seg;
+    }
+
+    if (aux->seg != nullptr && aux->seg->con == c){
+        node* eliminar = aux->seg;
+        aux->seg = aux->seg->seg;
+        delete eliminar;
+    } else{
+        throw ("Aquest contenidor no es troba ubicat");
+    }
 }
 
 std::string Poblacio::hiEs(std::string codi) {

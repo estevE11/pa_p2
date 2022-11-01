@@ -60,7 +60,7 @@ int main() {
     test("Contenidors eliminats", 5, conTotals);
 
     mesRen = p.mesRendiment();
-    test("Rendiment 3", "XY-010", mesRen->getCodi());
+    test("Rendiment 3", "XY-003", mesRen->getCodi());
 
     return 0;
 }
