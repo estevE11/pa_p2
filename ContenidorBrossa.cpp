@@ -79,14 +79,6 @@ std::string ContenidorBrossa::getEstat() {
     return "NOU";
 }
 
-/*
- * Imprimir:
- *  Codi: XX-YYYY
- *  Color: en format string, invoca al mètode adient
- *  Ubicació: nom de carrer si està en servei, “retirat” si està al
- *  magatzem de l’Ajuntament
- *  Tara: valor real amb dos decimals
- * */
 void ContenidorBrossa::toString() {
     std::cout << "Codi: " << this->codi << std::endl;
     std::cout << "Color: " << this->getTipusBrossa() << std::endl;
@@ -108,10 +100,8 @@ int ContenidorBrossa::getID(std::string t) {
     return -1;
 }
 
-// TODO: Mirar pq cojones no funciona la sobrecarga del operador. (preguntar al rems pq llevo +1h buscando)
-/*
 bool ContenidorBrossa::operator==(ContenidorBrossa *p) {
-    return this->codi.compare(p->getCodi()) == 0;
+    return !(*this>p) && !(*this<p);
 }
 
 bool ContenidorBrossa::operator>(ContenidorBrossa *p) {
@@ -121,5 +111,4 @@ bool ContenidorBrossa::operator>(ContenidorBrossa *p) {
 bool ContenidorBrossa::operator<(ContenidorBrossa *p) {
     return this->codi.compare(p->getCodi()) < 0;
 }
-*/
 

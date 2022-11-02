@@ -30,10 +30,10 @@ void Poblacio::afegirContenidor(ContenidorBrossa* p) {
     for(int i = 0; i < 5; i++) {
         node* curr = this->contenidors[i];
         if(curr == nullptr) continue;
-        if(curr->con == p) throw("El contenidor ja existeix!");
+        if(*curr->con == p) throw("El contenidor ja existeix!");
         while(curr->seg) {
             curr = curr->seg;
-            if(curr->con == p) throw("El contenidor ja existeix!");
+            if(*curr->con == p) throw("El contenidor ja existeix!");
         }
         if(i == id) target = curr;
     }

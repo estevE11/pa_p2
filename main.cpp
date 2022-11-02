@@ -12,10 +12,9 @@ int main() {
     Poblacio p;
 
     Organic organic("XY-000",  "carrer 1", 2022, 12);
-    Organic organic2("XY-000",  "carrer 2", 2022, 12);
-    std::cout << "organic == organic" << (organic == &organic2)<< std::endl;
-
     p.afegirContenidor(&organic);
+
+    Organic organic2("XY-001",  "carrer 2", 2022, 12);
     p.afegirContenidor(&organic2);
 
     Organic organic3("XY-015",  "carrer 3", 2022, 12);
@@ -32,7 +31,7 @@ int main() {
 
     p.afegirContenidor("XY-002", ContenidorBrossa::BLAU, "carrer 1", 2021, 6);
     p.afegirContenidor("XY-004", ContenidorBrossa::GROC, "carrer 3", 2021, 10);
-    p.afegirContenidor("XY-007", ContenidorBrossa::BLAU, "carrer 2", 2021, 10);
+    p.afegirContenidor("XY-007", ContenidorBrossa::VERD, "carrer 2", 2021, 10);
 
     conTotals = p.getQuants();
     test("Contenidors totals", 8, conTotals);
@@ -69,7 +68,7 @@ int main() {
     p.eliminarContenidor(&organic);
     conTotals = p.getQuants();
     test("Contenidor eliminats", 5, conTotals);
-
+    
     return 0;
 }
 
