@@ -18,7 +18,6 @@ public:
     ~Poblacio();
     void afegirContenidor(ContenidorBrossa* g);
     void afegirContenidor(std::string codi, int color, std::string ubicacio, int anyColocacio, float tara);
-    // Se li passa un codi i ha de retornar el color del contenidor, sino existeix llança una exepcio
     std::string hiEs(std::string codi);
     void eliminarContenidor(ContenidorBrossa* c);
     ContenidorBrossa* mesRendiment();

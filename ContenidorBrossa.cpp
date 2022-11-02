@@ -1,7 +1,3 @@
-//
-// Created by Cocon on 23/10/2022.
-//
-
 #include "ContenidorBrossa.h"
 
 #include <ctime>

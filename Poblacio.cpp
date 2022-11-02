@@ -77,7 +77,6 @@ void Poblacio::afegirContenidor(std::string codi, int color, std::string ubicaci
     this->afegirContenidor(c);
 }
 
-// TODO: Metodo eliminar contenidor hecho
 void Poblacio::eliminarContenidor(ContenidorBrossa* c) {
     int id = ContenidorBrossa::getID(c->getType());
 

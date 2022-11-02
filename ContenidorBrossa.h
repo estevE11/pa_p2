@@ -1,6 +1,3 @@
-//
-// Created by Cocon on 23/10/2022.
-//
 #pragma once
 
 #include <string>
@@ -33,22 +30,12 @@ public:
     static int getID(std::string type);
 
     virtual void toString();
-    virtual void buidat(float pes) = 0; // Abstracte
-    virtual std::string getType() = 0; // Abstracte
+    virtual void buidat(float pes) = 0;
+    virtual std::string getType() = 0;
     virtual std::string getReciclat() = 0;
     ~ContenidorBrossa();
 
     bool operator==(ContenidorBrossa *p);
     bool operator>(ContenidorBrossa *p);
     bool operator<(ContenidorBrossa *p);
-/*    bool operator==(ContenidorBrossa *p){
-        return !(*this>p) && !(*this<p);
-    };
-    bool operator>(ContenidorBrossa *p){
-        return this->codi.compare(p->getCodi()) < 0;
-    };
-    bool operator<(ContenidorBrossa *p){
-        return this->codi.compare(p->getCodi()) > 0;
-    };*/
-
 };
